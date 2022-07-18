@@ -1,4 +1,6 @@
-package testecarro;
+package testecarro2;
+
+import testecarro.*;
 
 public class Carro {
 
@@ -7,10 +9,35 @@ public class Carro {
     int numPassageiros;
     double capCombustivel;
     double consumoCombustivel;
+    
+    public Carro (String marca, String modelo, int numPassageiros,
+            double capCombustivel, double consumoCombustivel) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.numPassageiros = numPassageiros;
+        this.capCombustivel = capCombustivel;
+        this.consumoCombustivel = consumoCombustivel;
+    }
+    
+    public Carro(){
+        
+    }
+    
+    public Carro (String marca, String modelo) {
+        this(marca, modelo, 10);
+        System.out.println("Chamando o construtor com 2 parametros");
+    }
+        
+    public Carro (String marca, String modelo, int numPassageiros) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.numPassageiros = numPassageiros;
+        System.out.println("Chamando o construtor com 3 parametros");
+        }
 
     void exibirAutonomia(){
         
-        System.out.println("A autonomia do carro is: " + capCombustivel * consumoCombustivel + " km");
+        System.out.println("A autonomia do carro is: " +this.capCombustivel * this.consumoCombustivel + " km");
         
     }
     
@@ -18,12 +45,12 @@ public class Carro {
         
         System.out.println("Metodo obterAutonomia foi chamado");
         
-        return capCombustivel * consumoCombustivel;
+        return this.capCombustivel * this.consumoCombustivel;
     }
     
     double calcularCombustivel(double km){
         
-        double qtdCombustivel = km/consumoCombustivel;
+        double qtdCombustivel = km/this.consumoCombustivel;
         
         return qtdCombustivel;
     }
